@@ -13,6 +13,7 @@ namespace OnlineStoreAPI.Models
         public decimal Price { get; set; }
         public int stockQuantity { get; set; }
         [ForeignKey("Category")]
+        [Required]
         public int  CategoryId { get; set; }
        
         public DateTime CreatedAt { get; set; }

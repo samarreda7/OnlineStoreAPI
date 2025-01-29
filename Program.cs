@@ -23,6 +23,7 @@ namespace OnlineStoreAPI
             );
             //Reposatories Interfaces
             builder.Services.AddScoped<IproductRepository, ProductReprository>();
+            builder.Services.AddScoped<IcategoryRepository , CategoryRepository>();
             builder.Services.AddControllers();
 
             builder.Services.AddCors(options =>

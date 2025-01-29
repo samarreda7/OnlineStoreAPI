@@ -78,13 +78,34 @@ namespace OnlineStoreAPI.Controllers
             {
                 return BadRequest("Not Found");
             }
-            exist.Price = UpdateProduct.Price;
-            exist.stockQuantity = UpdateProduct.stockQuantity;
-            exist.CategoryId = UpdateProduct.CategoryId;
+
+            if(UpdateProduct.Price !=null && UpdateProduct.Price != 0)
+                {
+                exist.Price = UpdateProduct.Price;
+                }
+              else
+                {
+                exist.Price = exist.Price;
+                }
+
+            if (UpdateProduct.stockQuantity != null && UpdateProduct.stockQuantity != 0)
+            {
+                exist.stockQuantity = UpdateProduct.stockQuantity;
+            }
+            else
+            {
+                exist.stockQuantity = exist.stockQuantity;
+            }
+            if (UpdateProduct.CategoryId != null && UpdateProduct.CategoryId != 0)
+            {
+                exist.CategoryId = UpdateProduct.CategoryId;
+            }
+            else
+            {
+                exist.CategoryId = exist.CategoryId;
+            }
             ProdRepo.UpdateProduct(exist);
             ProdRepo.Save();
-            //context.Update(exist);
-            //context.SaveChanges();
             return Ok("Updated");
         }
 
